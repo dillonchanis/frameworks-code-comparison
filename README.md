@@ -432,6 +432,47 @@ Note `[src]` above is an input to the component where aboves `iframe` 'lives'.
 
 :arrow_right: https://angular.io/guide/pipes
 
+### Vue.js
+
+Vue.js provides filters to allow for simple text formatting. The filter utilizes the `|` character which is appended to the expression followed by the filter's name.  
+
+Filters are usable within mustache interpolations.
+
+```html
+<h1>{{ name | lowercase }}</h1> 
+```
+
+Filters can also be used within the `v-bind` directive.
+
+```html
+<div v-bind:slug="slug | formatSlug"></div>
+```
+
+When creating filters, the function always receives the expression's value. 
+
+```js
+new Vue({
+  el: '#app',
+  template: '<p> {{ message | lowercase }} </p>',
+  filters: {
+    lowercase(word) {
+      return word.toLowerCase();
+    }
+  },
+  data: {
+    message: 'Hello World'
+  },
+});
+```
+
+Filters can also be chained.
+
+```html
+<p>{{ description | lowercase | truncate }}</p>
+```
+
+:arrow_right: https://vuejs.org/v2/guide/filters.html
+
 # Inputs and Outputs
 
 ### AngularJS
