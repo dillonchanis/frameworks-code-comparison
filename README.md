@@ -434,7 +434,7 @@ Note `[src]` above is an input to the component where aboves `iframe` 'lives'.
 
 ### Vue.js
 
-Vue.js provides filters to allow for simple text formatting. The filter utilizes the `|` character which is appended to the expression followed by the filter's name.  
+Vue.js provides filters to allow for simple text formatting. The filter utilizes the `|` character which is appended to the expression followed by the filter's name. Vue does not come with any pre-built filters.
 
 Filters are usable within mustache interpolations.
 
@@ -470,6 +470,14 @@ Filters can also be chained.
 ```html
 <p>{{ description | lowercase | truncate }}</p>
 ```
+
+Filters can be created locally like the above example and only be available within that component. Filters can also be declared globally.
+
+```js
+Vue.filter('lowercase', word => word.toLowerCase());
+``` 
+
+For global filters to work, they should be declared before the Vue instance.
 
 :arrow_right: https://vuejs.org/v2/guide/filters.html
 
